@@ -6,13 +6,19 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class SearchTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
+    public function testMenuFound() {
+        $this->visit('/')
+            ->type('nasi ayam bakar', 'query')
+            ->press('submit-search')
+            ->seePageIs('/search')
+            ->see('Lihat Review');
+    }
+
+    public function testMenuNotFOund() {
+        $this->visit('/')
+            ->type('kodok goreng', 'query')
+            ->press('submit-search')
+            ->seePageIs('/search')
+            ->see('Tidak ditemukan menu "kodok goreng"');
     }
 }
