@@ -23,8 +23,14 @@ use Session;
 class UserController extends Controller
 {
 
+    public function create()
+    {
+        return view('register');
+    }
+
     // menyimpan (store) data yg sudah tervalidasi kedatabase
-    public function create(Request $request){
+    public function store(Request $request)
+    {
         //Users::create($request->all());
         $this->validate($request, [
             'nama' => 'required|max:255',
@@ -52,7 +58,7 @@ class UserController extends Controller
      * @author Putra Muttaqin
      */
     public function dologin()
-    {   
+    {
         $email = Input::get('email');
         $pass = md5(Input::get('password'));
         $user= DB::table('users')->where([['email',$email],['password',$pass]])->first();
@@ -73,7 +79,7 @@ class UserController extends Controller
             DB::table('waktu_login_users')->insert(['email' => $email],['login_time' => $loginTime]);
             $currTime = Carbon::now();
             $userLog = DB::table('waktu_login_users')->select('login_time')->where('email',$email)->orderBy('login_time','desc')->get();
-            
+
             if( empty($userLog[1])   ){
                 $lastLogin = Carbon::parse($userLog[0]->login_time);
                 $userpoin = DB::table('users')->select('total_point')->where('email', $email)->first();
@@ -90,9 +96,9 @@ class UserController extends Controller
                     $userpoin = DB::table('users')->select('total_point')->where('email', $email)->first();
                     $poinuser = $userpoin->total_point;
                     $poin = $poinuser + 10;
-                    
+
                     DB::table('point_history')->insert(['email' => $email, 'id_point' => 'PFL', 'waktu' => $loginTime]);
-                    DB::table('users')->where('email', $email)->update(['total_point' => $poin]);    
+                    DB::table('users')->where('email', $email)->update(['total_point' => $poin]);
                 }
             }
 
@@ -100,8 +106,8 @@ class UserController extends Controller
             return Redirect::to('/home');
             // $loginerr = 'Wrong email or password';
             // return Redirect::to('/home')->with('loginerr',$loginerr);
-        } 
-        // else { 
+        }
+        // else {
         //     Session::put('user',$user);
         //     return Redirect::to('/home');
         // }
@@ -180,7 +186,7 @@ class UserController extends Controller
                 return Redirect::to('profile')->with('success', 'berhasil');
             } else {
                 return Redirect::to('editProfile')->with('dbErr','Error saat menyimpan ke database')->with('gagal','tidak berubah')->withInput();
-            }       
+            }
         } else {
             return Redirect::to('editProfile')->with('passErr','Password Salah!')->with('gagal','tidak berubah')->withInput();
         }
@@ -200,7 +206,7 @@ class UserController extends Controller
 
             if($hiscek_user == $email && $hiscek_resto == $restoran){
                 return redirect()->route('restoranku', $id);
-                dd($hiscek_user);    
+                dd($hiscek_user);
             } else {
                 $checkinku = new CheckIn;
                 $checkinku->email = $email;

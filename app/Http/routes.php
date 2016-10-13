@@ -28,7 +28,10 @@ use App\Menu;
 Route::group(['middleware' => ['web']], function () {
 	Route::get('/','HomeController@home');
 	Route::post('/','HomeController@home');
-	Route::post('home', 'UserController@create');
+
+	Route::get('register', 'UserController@create');
+	Route::post('register', 'UserController@store');
+
 	Route::get('home','HomeController@home');
 
 	Route::post('dologin','UserController@dologin');
@@ -44,7 +47,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('editRestoran', 'RestoranController@edit');
 	Route::post('uploadPhotoResto', 'RestoranController@fotoResto');
 	Route::get('editMenuRestoran', 'RestoranController@editMenu');
-	
+
 	Route::get('profileRestoran', 'RestoranController@view');
 	Route::post('editRestoran','RestoranController@confirmEdit');
 	Route::get('editWaktuOperasional','WaktuOperasionalController@editWaktu');
@@ -72,12 +75,12 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('calculateFood/{orang}', 'PesananController@pesan');
 	Route::post('calculateFood/{orang}','PesananController@create');
 	Route::delete('calculateFood/{orang}', 'PesananController@destroy');
-	
+
 	Route::get('restoran','RestoranController@showList');
 	Route::get('restoran/{id}','RestoranController@show')->name('restoranku');
 	// untuk melakukan check in
 	Route::post('restoran/{id}','UserController@checkin');
-	
+
 
 	Route::get('menus/{id}','MenuController@showList');
 	Route::post('search','MenuController@search');

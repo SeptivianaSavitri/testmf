@@ -27,11 +27,9 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				@if (!Session::has('user'))
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#myModal1" data-toggle="modal"  data-target="#myModal1"><span class="glyphicon glyphicon-user" ></span> Daftar</a></li>
+					<li><a href="/register"><span class="glyphicon glyphicon-user" ></span> Daftar</a></li>
 					<li><a href="#myModal2" data-toggle="modal"  data-target="#myModal2"><span class="glyphicon glyphicon-log-in"></span> Masuk</a></li>
 				</ul>
-
-				@include('register')
 
 				@include('login')
 
