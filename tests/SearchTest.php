@@ -14,7 +14,7 @@ class SearchTest extends TestCase
             ->see('Lihat Review');
     }
 
-    public function testMenuNotFOund() {
+    public function testMenuNotFound() {
         $this->visit('/')
             ->type('kodok goreng', 'query')
             ->press('submit-search')
