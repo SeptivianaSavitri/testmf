@@ -52,7 +52,7 @@
 				                		<input type="text" class="form-control" name="query" placeholder="Search" >
   									</div>
 				                	<div class="form-group">
-					                    <button type="submit">
+					                    <button type="submit" name="submit-search">
 					                    	<span class="glyphicon glyphicon-search"></span>
 					                    </button>
 				                	</div>
