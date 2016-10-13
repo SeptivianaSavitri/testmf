@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "aae9ef7f3c0a37d845dbac01290cc5b8",
-    "content-hash": "f4e9f5a1cabb11ce158f775baa3bd0a6",
+    "hash": "1d8e82e6779f0eab52af2778e8bea95d",
+    "content-hash": "c1d868df71d0d9154a697593f6bb37b6",
     "packages": [
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -1135,6 +1135,55 @@
                 "php"
             ],
             "time": "2016-09-16 12:04:44"
+        },
+        {
+            "name": "orangehill/iseed",
+            "version": "v2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orangehill/iseed.git",
+                "reference": "e94c5a05742ff5e29ddf34a27fcfddbec7712fd4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orangehill/iseed/zipball/e94c5a05742ff5e29ddf34a27fcfddbec7712fd4",
+                "reference": "e94c5a05742ff5e29ddf34a27fcfddbec7712fd4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "illuminate/filesystem": "5.x",
+                "mockery/mockery": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Orangehill\\Iseed": "src/"
+                },
+                "classmap": [
+                    "src/Orangehill/Iseed/Exceptions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tihomir Opacic",
+                    "email": "tihomir.opacic@orangehilldev.com"
+                }
+            ],
+            "description": "Generate a new Laravel database seed file based on data from the existing database table.",
+            "keywords": [
+                "artisan",
+                "generators",
+                "laravel",
+                "seed"
+            ],
+            "time": "2016-09-14 07:59:34"
         },
         {
             "name": "paragonie/random_compat",

@@ -11,8 +11,12 @@ class RegistrationTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testGoodUserRegistration()
     {
-        $this->assertTrue(true);
+        $this->visit('/register')
+             ->type('Taylor', 'name')
+             ->check('terms')
+             ->press('Register')
+             ->seePageIs('/dashboard');
     }
 }
