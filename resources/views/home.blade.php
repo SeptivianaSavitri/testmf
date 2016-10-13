@@ -67,7 +67,7 @@
 							</div>
 							<div class="row">
 									<div class="col-sm-2 col-sm-offset-10">
-										<button type="submit" class="btn" id="cari">Cari</button>
+										<button type="submit" name="submit-budget" class="btn" id="cari">Cari</button>
 									</div>
 							</div>
 					  	</form>
