@@ -36,6 +36,16 @@ class HitungBudgetTest extends TestCase
              ->see('');   
     }
 
+    public function test_string_value()
+    {
+        $this->visit('/home')
+             ->type('nyem', 'budget')
+             ->type('nyem', 'porsi')
+             ->press('submit-budget')
+             ->seePageIs('/findFood')
+             ->see('');   
+    }
+
     public function testSucceedFind()
     {
 
