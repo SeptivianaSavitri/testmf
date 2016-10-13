@@ -23,7 +23,7 @@ class RegistrationTest extends TestCase
     public function testIncompleteRegistration()
     {
         $this->visit('/register')
-             ->type('wiratmika@gmail.com', 'email')
+             ->type('rioharyanto@gmail.com', 'email')
              ->type('kenasendiri', 'password')
              ->press('Daftar')
              ->seePageIs('/register')
@@ -34,8 +34,8 @@ class RegistrationTest extends TestCase
     public function testBadEmailRegistration()
     {
         $this->visit('/register')
-             ->type('Wiratmika', 'nama')
-             ->type('wiratmikabukangmail.com', 'email')
+             ->type('April', 'nama')
+             ->type('amazingapril.com', 'email')
              ->type('kenasendiri', 'password')
              ->type('kenasendiri', 're-pass')
              ->press('Daftar')
@@ -43,11 +43,11 @@ class RegistrationTest extends TestCase
              ->see('The email must be a valid email address.');
     }
 
-    public function testNoPasswordConfirmationRegistration()
+    public function testWrongPasswordConfirmationRegistration()
     {
         $this->visit('/register')
-             ->type('Wiratmika', 'nama')
-             ->type('wiratmika@gmail.com', 'email')
+             ->type('Nabilla Augustrianti', 'nama')
+             ->type('nabilla@gmail.com', 'email')
              ->type('kenasendiri', 'password')
              ->type('kenasendirilhoo', 're-pass')
              ->press('Daftar')
@@ -58,8 +58,8 @@ class RegistrationTest extends TestCase
     public function testPasswordLengthNotEnoughRegistration()
     {
         $this->visit('/register')
-             ->type('Wiratmika', 'nama')
-             ->type('wiratmika@gmail.com', 'email')
+             ->type('Rahmi Vitri', 'nama')
+             ->type('rahmidanvitri@gmail.com', 'email')
              ->type('kena', 'password')
              ->type('kena', 're-pass')
              ->press('Daftar')
